@@ -5,8 +5,8 @@ import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
 import 'contants.dart';
 
-class CustomRecaptchaV2 extends StatefulWidget {
-  final RecaptchaV2Controller controller;
+class VizoRecaptcha extends StatefulWidget {
+  final VizoRecaptchaController controller;
   final void Function(JavascriptMessage) onMessageReceived;
   final String apiKey;
   final String apiSecret;
@@ -16,7 +16,7 @@ class CustomRecaptchaV2 extends StatefulWidget {
   final Function(String token) onVerifiedSuccessfully;
   final Function(String error)? onVerifiedError;
 
-  const CustomRecaptchaV2({
+  const VizoRecaptcha({
     Key? key,
     required this.controller,
     required this.apiKey,
@@ -29,11 +29,11 @@ class CustomRecaptchaV2 extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _CustomRecaptchaV2State();
+  State<StatefulWidget> createState() => _VizoRecaptchaState();
 }
 
-class _CustomRecaptchaV2State extends State<CustomRecaptchaV2> {
-  RecaptchaV2Controller get controller => widget.controller;
+class _VizoRecaptchaState extends State<VizoRecaptcha> {
+  VizoRecaptchaController get controller => widget.controller;
   WebViewPlusController? webViewController;
 
   void onListen() {
@@ -50,7 +50,7 @@ class _CustomRecaptchaV2State extends State<CustomRecaptchaV2> {
   }
 
   @override
-  void didUpdateWidget(CustomRecaptchaV2 oldWidget) {
+  void didUpdateWidget(VizoRecaptcha oldWidget) {
     if (widget.controller != oldWidget.controller) {
       oldWidget.controller.removeListener(onListen);
       controller.removeListener(onListen); // TODO ??
@@ -136,7 +136,7 @@ class _CustomRecaptchaV2State extends State<CustomRecaptchaV2> {
   }
 }
 
-class RecaptchaV2Controller extends ChangeNotifier {
+class VizoRecaptchaController extends ChangeNotifier {
   bool isDisposed = false;
   List<VoidCallback> _listeners = [];
 
