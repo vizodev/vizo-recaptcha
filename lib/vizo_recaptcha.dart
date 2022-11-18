@@ -9,7 +9,7 @@ class VizoRecaptcha extends StatefulWidget {
   final VizoRecaptchaController controller;
   final void Function(JavascriptMessage) onMessageReceived;
   final String apiKey;
-  final String apiSecret;
+  final String? apiSecret;
   final String pluginUrl;
   final String? textCancelButton;
 
@@ -20,7 +20,7 @@ class VizoRecaptcha extends StatefulWidget {
     Key? key,
     required this.controller,
     required this.apiKey,
-    required this.apiSecret,
+    this.apiSecret,
     required this.onVerifiedSuccessfully,
     this.onVerifiedError,
     this.pluginUrl = 'https://recaptcha-flutter-plugin.firebaseapp.com/',
